@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+    <img src="images/logo.png" class="logo">
+          <div class="content">
+<p>This website is still under maintiance</p>
+<h1>Launching <span>comming</span>  soon</h1>
+<div class="clock">
+    <div>
+    <p id="days">00</p> 
+    <h3>Days</h3>
+   </div>
+     <div>
+    <p id="hours">00</p> 
+    <h3>Hours</h3>
+   </div>
+    <div>
+    <p id="minutes">00</p> 
+    <h3>Minutes</h3>
+   </div>
+    <div>
+    <p id="seconds">00</p> 
+    <h3>Seconds</h3>
+   </div>
+  </div>
+  <button> Learn More <img src="images/triangle.png"></button>
+</div>
+<div class="rocket"><img src="images/rocket.png"></div>
+    </div>
+
+    <script>
+         let future =new Date("Oct 21, 2025 00:00:00").getTime();
+         let x=setInterval(function() {
+            let curr=new Date().getTime();
+            let count=future-curr;
+
+            if(count<0) {
+                document.getElementById("days").innerHTML="00";
+                document.getElementById("hours").innerHTML="00";
+                document.getElementById("minutes").innerHTML="00";
+                document.getElementById("seconds").innerHTML="00";
+                clearInterval(x);
+                return;
+            }
+        let days=Math.floor(count/(24*60*60*1000));
+         let hours = Math.floor((count % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        let minutes = Math.floor((count % (1000 * 60 * 60)) / (1000 * 60));
+        let seconds = Math.floor((count % (1000 * 60)) / 1000);
+
+        document.getElementById("days").innerText = days.toString().padStart(2, '0');
+        document.getElementById("hours").innerText = hours.toString().padStart(2, '0');
+        document.getElementById("minutes").innerText = minutes.toString().padStart(2, '0');
+        document.getElementById("seconds").innerText = seconds.toString().padStart(2, '0');
+ 
+        },1000);
+
+    </script>
+
+</body>
+</html>
